@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Web Application</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav id="nav-bar">
+            <h1 id="logo-title"> Blog <br> Web <br> Application </h1>
+            <div id="nav-links-flexbox">
+                <ul>
+                    <% const urlParts = currentPath.split("/"); %>
+                    <li><a href="/"> Home </a> </li>
+                    <li><a href="/new-blog"> Create Blog </a> </li>
+                    <% if (currentPath.startsWith("/show/")) {%>
+                        <li><a href="/show/<%= urlParts[2] %>/edit-blog"> Edit Blog </a></li>
+                    <%} else { %>
+                        <li><a href="/edit-blog" style="opacity: 0.3; pointer-events: none;"> Edit Blog </a></li>
+                    <% } %>
+                    <% if (currentPath.startsWith("/show/")) { %>
+                        <li><a href="/show/<%= urlParts[2] %>/delete-blog"> Delete Blog </a></li>
+                    <%} else { %>
+                        <li><a href="#" style="opacity: 0.3; pointer-events: none;"> Delete Blog </a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+

@@ -1,0 +1,19 @@
+<%- include("partials/header.ejs") %>
+
+<section id="blogs">
+    <h2 class="h2"> My Blogs </h2>
+    <div id="blogs-gridbox">
+        <% for(let i = 0; i < blogs.length ; i++) {%>
+            <div id="<%= i %>" class="blog"> 
+                <a href="/show/<%= blogs[i].id %>"> <%= blogs[i].title %> </a>
+            </div>
+        <% }; %>
+    </div>
+</section>
+
+<%- include("partials/footer.ejs") %>
+
+
+
+
+

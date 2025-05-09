@@ -1,0 +1,21 @@
+{
+  "name": "blog-web-application",
+  "version": "1.0.0",
+  "description": "This is the 3rd Capstone Project of a Blog Web Application.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "console.log(\"Hello World\");"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Hiro",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "uuid": "^11.1.0"
+  }
+}
