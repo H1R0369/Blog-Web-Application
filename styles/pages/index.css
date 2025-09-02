@@ -2,18 +2,22 @@
 
 /* ========== MAIN ========== */
 
-.blog-card-container {
+.blog-cards-container {
     display: flex;
     flex-direction: column;
     gap: 3rem;
 }
 
-.blog-container {
+.blog-card-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: stretch;
     gap: 1rem;
     border: 2px solid var(--color-white);
-    padding: 3rem;
+    text-align: center;
+}
+
+.blog-title-heading-container, .blog-content-paragraph-container, .blog-date-created-paragraph-container, .blog-last-modified-time-paragraph-container {
+    border: 2px solid var(--color-white);
 }

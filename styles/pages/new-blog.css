@@ -11,9 +11,7 @@
 
 /* ========== HEADER ========== */
 
-/* ---------- Navigation  ---------- */
-
-.write-your-blog-header-container {
+.write-your-blog-heading-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,12 +28,14 @@
     height: var(--blog-title-input-height);
 }
 
+/* ---------- Navigation  ---------- */
+
 .navbar {
     border: none;
     padding: 2rem;
 }
 
-.nav-link-container {
+.nav-links-container {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;

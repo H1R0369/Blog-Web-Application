@@ -46,7 +46,7 @@ header, main {
     padding: 3rem;
 }
 
-.nav-link-container {
+.nav-links-container {
     display: flex;
     flex-direction: column;
     gap: 5rem;
@@ -55,6 +55,6 @@ header, main {
 .nav-link {
     font-size: var(--text-base);
     border: 2px solid var(--color-white);
-    border-radius: 3rem;
+    border-radius: 1.5rem;
     padding: 0.7rem;
 }
