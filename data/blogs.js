@@ -21,4 +21,5 @@ export let blogs = [
         lastModifiedTime: '03.08.25',
         content: 'This is my third every blog.'
     },
+    
 ]
