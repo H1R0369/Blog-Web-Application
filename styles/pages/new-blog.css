@@ -5,6 +5,10 @@
 
 /* ==================== SECTIONS ==================== */
 
+.main-container {
+    gap: 0rem;
+}
+
 /* ========== HEADER ========== */
 
 /* ---------- Navigation  ---------- */
@@ -17,15 +21,24 @@
     border: 2px solid var(--color-white);
 }
 
+.blog-title-input, .blog-content-textarea {
+    border: 2px solid var(--color-white);
+}
+
 .blog-title-input {
     width: 100%;
     height: var(--blog-title-input-height);
 }
 
+.navbar {
+    border: none;
+    padding: 2rem;
+}
+
 .nav-link-container {
     flex-direction: row;
-    justify-content: flex-end;
-    gap: 10rem;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .back-cancel-link-container {
