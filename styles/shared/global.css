@@ -14,8 +14,8 @@ body {
     align-items: stretch;
     gap: 10rem;
     max-width: 1800px;
-    width: 100%;
-    padding: 5% auto;
+    width: 90%;
+    margin: 5% auto;
 }
 
 /* ==================== COMPONENTS ==================== */
@@ -24,7 +24,7 @@ body {
 
 /* ==================== SECTIONS ==================== */
 
-main {
+header, main {
     display: flex;
     flex-direction: column;
     gap: 5rem;
@@ -53,8 +53,8 @@ main {
 }
 
 .nav-link {
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     border: 2px solid var(--color-white);
     border-radius: 3rem;
-    padding: 1rem;
+    padding: 0.7rem;
 }

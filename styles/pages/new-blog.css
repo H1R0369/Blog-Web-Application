@@ -1,11 +1,43 @@
+:root {
+    --write-your-blog-header-container-height: 100px;
+    --blog-title-input-height: 70px;
+}
+
 /* ==================== SECTIONS ==================== */
 
 /* ========== HEADER ========== */
 
-.blog-title-input-container {
+/* ---------- Navigation  ---------- */
+
+.write-your-blog-header-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    height: var(--write-your-blog-header-container-height);
     border: 2px solid var(--color-white);
-    height: 30vh;
+}
+
+.blog-title-input {
+    width: 100%;
+    height: var(--blog-title-input-height);
+}
+
+.nav-link-container {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10rem;
+}
+
+.back-cancel-link-container {
+    display: flex;
+    gap: 1rem;
+}
+
+/* ========== HEADER ========== */
+
+.blog-content-textarea {
+    width: 100%;
+    height: calc( 100vh - ( var( --blog-title-input-height) + var(--write-your-blog-header-container-height) ) );
+    padding: 2rem;
+    text-align: center;
 }
