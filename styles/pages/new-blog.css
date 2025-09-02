@@ -1,0 +1,9 @@
+/* ==================== SECTIONS ==================== */
+
+/* ========== HEADER ========== */
+
+.blog-title-input-container {
+    display: flex;
+    justify-content: stretch;
+    border: 2px solid var(--color-white);
+}

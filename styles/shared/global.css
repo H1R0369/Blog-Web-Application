@@ -1,0 +1,60 @@
+/* ==================== GLOBAL STYLES ==================== */
+
+body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-primary);
+    background-color: var(--color-black);
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10rem;
+    max-width: 1800px;
+    width: 100%;
+    margin: 5% auto;
+}
+
+/* ==================== COMPONENTS ==================== */
+
+
+
+/* ==================== SECTIONS ==================== */
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+/* ---------- Navigation ---------- */
+
+.logo {
+    width: 300px;
+    font-size: var(--text-h3);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 5rem;
+    border: 2px solid var(--color-white);
+    padding: 3rem;
+}
+
+.nav-link-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.nav-link {
+    font-size: var(--text-lg);
+    border: 2px solid var(--color-white);
+    border-radius: 3rem;
+    padding: 1rem;
+}
