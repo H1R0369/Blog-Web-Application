@@ -11,21 +11,12 @@
 
 /* ========== HEADER ========== */
 
-.write-your-blog-heading-container {
+.blog-title-heading-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: var(--write-your-blog-header-container-height);
     border: 2px solid var(--color-white);
-}
-
-.blog-title-input {
-    border: 2px solid var(--color-white);
-}
-
-.blog-title-input {
-    width: 100%;
-    height: var(--blog-title-input-height);
 }
 
 /* ---------- Navigation  ---------- */
@@ -41,14 +32,9 @@
     width: 100%;
 }
 
-.back-cancel-link-container {
-    display: flex;
-    gap: 1rem;
-}
-
 /* ========== MAIN ========== */
 
-.blog-content-textarea {
+.blog-content-paragraph {
     border: 2px solid var(--color-white);
     width: 100%;
     height: calc( 100vh - ( var( --blog-title-input-height) + var(--write-your-blog-header-container-height) ) );
