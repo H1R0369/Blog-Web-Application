@@ -1,4 +1,4 @@
-import { blogs, addBlog, currentBlog } from "../data/blogs.js";
+import { blogs, addBlog, deleteBlog, removeCurrentBlog, currentBlog } from "../data/blogs.js";
 
 const mainContainerElement = document.querySelector('.main-container')
 
@@ -38,15 +38,35 @@ mainContainerElement.innerHTML = `
                             Go Back
                         </a>
                     </li>
-
-                    <!-- Navlink -->
+                    
+                    <!-- Edit & Delete Links -->
                     <li>
-                        <a 
-                            href="./index.html"
-                            class="edit-link nav-link"
+                        <ul
+                            class="edit-delete-links-container"
                         >
-                            Edit
-                        </a>
+
+                            <!-- Navlink -->
+                            <li>
+                                <a 
+                                    href="./index.html"
+                                    class="delete-link nav-link"
+                                    data-blog-id="${currentBlog.id}"
+                                >
+                                    Delete
+                                </a>
+                            </li>
+
+                            <!-- Navlink -->
+                            <li>
+                                <a 
+                                    href="./index.html"
+                                    class="edit-link nav-link"
+                                >
+                                    Edit
+                                </a>
+                            </li>
+
+                        </ul>
                     </li>
 
                 </ul>
@@ -76,10 +96,26 @@ mainContainerElement.innerHTML = `
 
 `
 
-document.querySelector('.edit-link').addEventListener('click', () => {
+const deleteLinks = document.querySelectorAll('.delete-link');
 
-    const blogTitleElement = document.querySelector('.blog-title-input');
-    const blogContentElement = document.querySelector('.blog-content-textarea');
+deleteLinks.forEach(link => {
 
-    addBlog(blogTitleElement, blogContentElement);
+    const blogId = link.dataset.blogId;
+
+    link.addEventListener('click', () => {
+
+        deleteBlog(blogId);
+        removeCurrentBlog()
+    })
+
+})
+
+const goBackLinks = document.querySelectorAll('.go-back-link');
+
+goBackLinks.forEach(link => {
+
+    link.addEventListener('click', () =>  {
+        removeCurrentBlog()
+    })
+
 })

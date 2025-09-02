@@ -31,8 +31,21 @@ export function addBlog(blogTitleElement, blogContentElement) {
     saveStorage();
 }
 
+export function deleteBlog(blogId) {
+
+    blogs = blogs.filter(blog => blog.id != blogId);
+    saveStorage();
+
+}
+
 export function setCurrentBlog(blogId) {
-    // const blog = blogs.find(blog => blog.id === blogId);
+
     currentBlog = blogs.find(blog => blog.id === blogId);
     saveStorage();
+}
+
+export function removeCurrentBlog() {
+    currentBlog = null;
+    saveStorage();
+    console.log("after delete", currentBlog)
 }

@@ -1,4 +1,4 @@
-import { blogs, setCurrentBlog } from "../data/blogs.js";
+import { blogs, currentBlog, setCurrentBlog } from "../data/blogs.js";
 
 let blogsHTML = '';
 
