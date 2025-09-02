@@ -4,6 +4,8 @@
 
 .blog-title-input-container {
     display: flex;
-    justify-content: stretch;
+    flex-direction: column;
+    justify-content: center;
     border: 2px solid var(--color-white);
+    height: 30vh;
 }
