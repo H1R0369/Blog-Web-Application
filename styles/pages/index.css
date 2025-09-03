@@ -18,6 +18,20 @@
     text-align: center;
 }
 
-.blog-title-heading-container, .blog-content-paragraph-container, .blog-date-created-paragraph-container, .blog-last-modified-time-paragraph-container {
-    border: 2px solid var(--color-white);
+.blog-title-heading-container, .blog-content-paragraph-container, .blog-date-created-paragraph {
+
+    border-bottom: 2px solid var(--color-white);
+
+}
+
+.blog-content-paragraph {
+    font-size: var(--text-base);
+}
+
+.blog-details-container {
+    border-top: 2px solid var(--color-white);
+}
+
+.blog-date-created-paragraph, .blog-last-modified-time-paragraph {
+    font-size: var(--text-lg);
 }
