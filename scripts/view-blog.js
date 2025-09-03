@@ -59,8 +59,9 @@ mainContainerElement.innerHTML = `
                             <!-- Navlink -->
                             <li>
                                 <a 
-                                    href="./index.html"
+                                    href="./edit-blog.html"
                                     class="edit-link nav-link"
+                                    data-blog-id="${currentBlog.id}"
                                 >
                                     Edit
                                 </a>
@@ -95,27 +96,28 @@ mainContainerElement.innerHTML = `
         </main>
 
 `
+const goBackLink = document.querySelector('.go-back-link');
 
-const deleteLinks = document.querySelectorAll('.delete-link');
+goBackLink.addEventListener('click', () =>  {
 
-deleteLinks.forEach(link => {
+    removeCurrentBlog()
 
+});
+
+const deleteLink = document.querySelector('.delete-link');
+
+deleteLink.addEventListener('click', () => {
+
+    const blogId = deleteLink.dataset.blogId;
+    deleteBlog(blogId);
+    removeCurrentBlog()
+
+});
+
+const editLink = document.querySelector('.edit-link');
+
+    editLink.addEventListener('click', () => {
     const blogId = link.dataset.blogId;
-
-    link.addEventListener('click', () => {
-
-        deleteBlog(blogId);
-        removeCurrentBlog()
-    })
-
-})
-
-const goBackLinks = document.querySelectorAll('.go-back-link');
-
-goBackLinks.forEach(link => {
-
-    link.addEventListener('click', () =>  {
-        removeCurrentBlog()
-    })
+    console.log('edit')
 
 })

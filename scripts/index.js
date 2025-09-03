@@ -53,7 +53,7 @@ blogs.forEach(blog => {
                     <p
                         class="blog-date-created-paragraph"
                     >
-                        Created: ${blog.dateCreated}
+                        Created: ${blog.dateCreated} at ${blog.timeCreated}
                     </p>
 
                 </div>

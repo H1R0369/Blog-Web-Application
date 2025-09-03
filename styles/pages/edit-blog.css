@@ -11,7 +11,7 @@
 
 /* ========== HEADER ========== */
 
-.write-your-blog-heading-container {
+.edit-your-blog-heading-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,6 +39,11 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+}
+
+.delete-save-links-container {
+    display: flex;
+    gap: 1rem;
 }
 
 /* ========== MAIN ========== */
