@@ -38,8 +38,18 @@ export function addBlog(blogTitleElement, blogContentElement) {
 
     };
 
-    blogs.push(blog);
-    saveStorage()
+    if (blog.title != '') {
+
+        if (blog.content === '') {
+
+            blog.content = 'No Text'
+            
+        }
+
+        blogs.push(blog);
+        saveStorage()
+
+    }
 
 };
 
