@@ -6,11 +6,7 @@ export let currentBlog = JSON.parse(localStorage.getItem('currentBlog'));
 export let blogs = JSON.parse(localStorage.getItem('blogs'));
 
 
-if (!blogs) {
-
-    blogs = []
-
-};
+if (!blogs) blogs = [];
 
 
 export function saveStorage() {
@@ -32,7 +28,7 @@ export function addBlog(blogTitleElement, blogContentElement) {
         content: blogContentElement.value,
         id: randomId,
         dateCreated: today.format('DD.MM.YY'),
-        timeCreated: today.format('HH:mm A '),
+        timeCreated: today.format('HH:mm A'),
         lastModifiedDate: '--',
         lastModifiedTime: '--'
 
