@@ -1,3 +1,4 @@
+import { gsapInit } from "./gsap.js";
 import { blogs } from "../data/blogs.js";
 
 let blogsHTML = '';
@@ -10,7 +11,7 @@ blogs.forEach(blog => {
 
         <a
             href="view-blog.html?blog-id=${blog.id}"
-            class="blog-card-link"
+            class="blog-card-link gsap-pulse-on-hover-blog gsap-scale-on-click-blog"
         >
             <div
                 class="blog-card-container"
@@ -79,3 +80,5 @@ blogs.forEach(blog => {
     blogCardsContainer.innerHTML = blogsHTML;
 
 });
+
+gsapInit()
