@@ -179,10 +179,21 @@ export function gsapInit() {
 
         });
 
-        element.addEventListener('click', () => {
+        element.addEventListener('click', (e) => {
+
+            e.preventDefault();
 
             scaleTween.restart();
-            console.log('clicked')
+            console.log('clicked');
+            
+            if (element.href) {
+
+                setTimeout(() => {
+                    window.location.assign(element.href)
+                }, 200);
+
+            }
+
 
         })
 
