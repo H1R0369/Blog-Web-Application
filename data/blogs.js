@@ -1,8 +1,6 @@
 import { UUID } from "https://unpkg.com/uuidjs@^5";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
-
-export let currentBlog = JSON.parse(localStorage.getItem('currentBlog'));
 export let blogs = JSON.parse(localStorage.getItem('blogs'));
 
 
@@ -12,7 +10,6 @@ if (!blogs) blogs = [];
 export function saveStorage() {
 
     localStorage.setItem('blogs', JSON.stringify(blogs));
-    localStorage.setItem('currentBlog', JSON.stringify(currentBlog));
 
 };
 
@@ -42,7 +39,7 @@ export function addBlog(blogTitleElement, blogContentElement) {
             
         }
 
-        blogs.push(blog);
+        blogs.unshift(blog);
         saveStorage()
 
     }
@@ -58,17 +55,17 @@ export function deleteBlog(blogId) {
 };
 
 
-export function addEditedBlog(blogTitleElement, blogContentElement) {
+export function addEditedBlog(blogId, blogTitleElement, blogContentElement) {
 
     const today = dayjs();
-    const oldBlog = blogs.find(blog => blog.id === currentBlog.id);
+    const oldBlog = blogs.find(blog => blog.id === blogId);
     const newBlog = {
 
         title: blogTitleElement.value,
         content: blogContentElement.value,
-        id: currentBlog.id,
-        dateCreated: currentBlog.dateCreated,
-        timeCreated: currentBlog.timeCreated,
+        id: blogId,
+        dateCreated: oldBlog.dateCreated,
+        timeCreated: oldBlog.timeCreated,
         lastModifiedDate: today.format('DD.MM.YY'),
         lastModifiedTime: today.format('HH:mm A')
 
@@ -78,12 +75,11 @@ export function addEditedBlog(blogTitleElement, blogContentElement) {
     function replaceBlog() {
 
         blogs.splice(blogs.indexOf(oldBlog), 1);
-        blogs.push(newBlog);
-        currentBlog = newBlog;
+        blogs.unshift(newBlog);
 
     };
 
-    if (newBlog.title != currentBlog.title || newBlog.content != currentBlog.content) {
+    if (newBlog.title != oldBlog.title || newBlog.content != oldBlog.content) {
 
         if (newBlog.title === '') {
             newBlog.title = 'No Title'    
@@ -97,20 +93,5 @@ export function addEditedBlog(blogTitleElement, blogContentElement) {
         saveStorage()
 
     }
+
 };
-
-
-export function setCurrentBlog(blogId) {
-
-    currentBlog = blogs.find(blog => blog.id === blogId);
-    saveStorage()
-    
-};
-
-
-export function removeCurrentBlog() {
-
-    currentBlog = null;
-    saveStorage();
-
-}

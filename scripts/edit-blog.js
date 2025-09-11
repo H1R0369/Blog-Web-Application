@@ -1,6 +1,7 @@
-import { currentBlog, addEditedBlog, deleteBlog, removeCurrentBlog } from "../data/blogs.js";
+import { blogs, addEditedBlog, deleteBlog } from "../data/blogs.js";
 
 const mainContainer = document.querySelector('.main-container');
+const currentBlog = findCurrentBlog();
 
 mainContainer.innerHTML = `
 
@@ -71,10 +72,11 @@ mainContainer.innerHTML = `
                         <!-- Navlink -->
                         <li>
                             <a 
-                                href="./view-blog.html"
+                                href="view-blog.html?blog-id=${currentBlog.id}"
                                 class="save-link nav-link"
                             >
                                 Save
+
                             </a>
                         </li>
                     </ul>
@@ -110,13 +112,21 @@ mainContainer.innerHTML = `
 `
 
 
+function findCurrentBlog() {
+
+    const url = new URL(window.location.href);
+    const blogId = url.searchParams.get('blog-id');
+    
+    return blogs.find(blog => blog.id === blogId);
+
+}
+
+
 const deleteLink = document.querySelector('.delete-link');
 
 deleteLink.addEventListener('click', () => {
 
-    const blogId = deleteLink.dataset.blogId;
-    deleteBlog(blogId);
-    removeCurrentBlog()
+    deleteBlog(currentBlog.id);
 
 });
 
@@ -128,6 +138,6 @@ saveLink.addEventListener('click', () => {
     const blogTitleElement = document.querySelector('.blog-title-input');
     const blogContentElement = document.querySelector('.blog-content-textarea');
 
-    addEditedBlog(blogTitleElement, blogContentElement);
+    addEditedBlog(currentBlog.id, blogTitleElement, blogContentElement);
 
 })

@@ -1,4 +1,4 @@
-import { blogs, currentBlog, setCurrentBlog } from "../data/blogs.js";
+import { blogs } from "../data/blogs.js";
 
 let blogsHTML = '';
 
@@ -9,9 +9,8 @@ blogs.forEach(blog => {
     blogsHTML += `
 
         <a
-            href="./view-blog.html"
+            href="view-blog.html?blog-id=${blog.id}"
             class="blog-card-link"
-            data-blog-id="${blog.id}"
         >
             <div
                 class="blog-card-container"
@@ -80,15 +79,3 @@ blogs.forEach(blog => {
     blogCardsContainer.innerHTML = blogsHTML;
 
 });
-
-document.querySelectorAll('.blog-card-link').forEach(cardLink => {
-
-    const cardLinkId = cardLink.dataset.blogId;
-
-    cardLink.addEventListener('click', () => {
-
-        setCurrentBlog(cardLinkId)
-
-    })
-
-})

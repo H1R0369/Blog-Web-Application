@@ -1,6 +1,7 @@
-import { blogs, addBlog, deleteBlog, removeCurrentBlog, currentBlog } from "../data/blogs.js";
+import { blogs, addBlog, deleteBlog } from "../data/blogs.js";
 
-const mainContainerElement = document.querySelector('.main-container')
+const mainContainerElement = document.querySelector('.main-container');
+const currentBlog = findCurrentBlog();
 
 mainContainerElement.innerHTML = `
 
@@ -50,7 +51,6 @@ mainContainerElement.innerHTML = `
                                 <a 
                                     href="./index.html"
                                     class="delete-link nav-link"
-                                    data-blog-id="${currentBlog.id}"
                                 >
                                     Delete
                                 </a>
@@ -59,9 +59,8 @@ mainContainerElement.innerHTML = `
                             <!-- Navlink -->
                             <li>
                                 <a 
-                                    href="./edit-blog.html"
+                                    href="./edit-blog.html?blog-id=${currentBlog.id}"
                                     class="edit-link nav-link"
-                                    data-blog-id="${currentBlog.id}"
                                 >
                                     Edit
                                 </a>
@@ -96,28 +95,24 @@ mainContainerElement.innerHTML = `
         </main>
 
 `
-const goBackLink = document.querySelector('.go-back-link');
 
-goBackLink.addEventListener('click', () =>  {
 
-    removeCurrentBlog()
+function findCurrentBlog() {
 
-});
+    const url = new URL(window.location.href);
+    const blogId = url.searchParams.get('blog-id');
+
+    return blogs.find(blog => blog.id === blogId);
+
+}
+
 
 const deleteLink = document.querySelector('.delete-link');
 
 deleteLink.addEventListener('click', () => {
 
-    const blogId = deleteLink.dataset.blogId;
-    deleteBlog(blogId);
-    removeCurrentBlog()
+    deleteBlog(currentBlog.id);
 
 });
 
-const editLink = document.querySelector('.edit-link');
-
-    editLink.addEventListener('click', () => {
-    const blogId = link.dataset.blogId;
-    console.log('edit')
-
-})
+console.log(blogs)
